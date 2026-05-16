@@ -1,0 +1,167 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-serif), Georgia, serif;
+  --font-mono: var(--font-mono), ui-monospace, monospace;
+}
+
+:root {
+  --paper: #f5f1eb;
+  --paper-soft: #fbf8f3;
+  --charcoal: #24211d;
+  --muted: #6f675d;
+  --olive: #7a8068;
+  --stone: #b7ada3;
+  --sand: #d7c5b2;
+  --espresso: #191713;
+}
+
+@layer base {
+  html {
+    background-color: var(--paper);
+    color: var(--charcoal);
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: var(--olive);
+    color: var(--paper);
+  }
+
+  section[id] {
+    scroll-margin-top: 6rem;
+  }
+}
+
+@layer components {
+  .display-xl {
+    font-family: var(--font-serif);
+    font-size: clamp(4.1rem, 8.8vw, 9.6rem);
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 0.86;
+  }
+
+  .display-lg {
+    font-family: var(--font-serif);
+    font-size: clamp(3.2rem, 7vw, 7rem);
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 0.9;
+  }
+
+  .display-sm {
+    font-family: var(--font-serif);
+    font-size: clamp(2.7rem, 4.8vw, 5.2rem);
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 0.95;
+  }
+
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--olive);
+  }
+
+  .hairline {
+    border-color: color-mix(in srgb, var(--stone) 48%, transparent);
+  }
+
+  .editorial-image {
+    background-size: cover;
+    background-position: center;
+    filter: saturate(0.82) contrast(0.95);
+  }
+
+  .field {
+    width: 100%;
+    border: 1px solid rgba(245, 241, 235, 0.28);
+    background: rgba(245, 241, 235, 0.06);
+    padding: 0.85rem 0.95rem;
+    color: var(--paper);
+    font-size: 0.8rem;
+    outline: none;
+    transition: border-color 500ms cubic-bezier(0.32, 0.72, 0, 1), background-color 500ms cubic-bezier(0.32, 0.72, 0, 1);
+  }
+
+  .field::placeholder {
+    color: rgba(245, 241, 235, 0.62);
+  }
+
+  .field:focus {
+    border-color: var(--sand);
+    background: rgba(245, 241, 235, 0.1);
+  }
+}
+
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-enter {
+  animation: page-enter 0.55s cubic-bezier(0.32, 0.72, 0, 1) both;
+}
+
+@keyframes progress-grow {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--olive);
+  transform-origin: left;
+  transform: scaleX(0);
+  z-index: 100;
+  animation: progress-grow 0.55s cubic-bezier(0.32, 0.72, 0, 1) both;
+}
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+    filter: blur(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+.reveal {
+  animation: reveal-up 0.8s cubic-bezier(0.32, 0.72, 0, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+  }
+}
