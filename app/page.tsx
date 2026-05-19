@@ -13,11 +13,13 @@ export default function HomePage() {
       <Nav />
       <main>
         <section className="relative min-h-[100dvh] overflow-hidden bg-[var(--espresso)] text-[var(--paper)]">
-          <div
-            className="absolute inset-0 bg-cover bg-center opacity-78"
-            style={{ backgroundImage: "url(https://picsum.photos/seed/savannah-camera-lake/1800/1200)" }}
+          <img
+            src="/savhero2.png"
+            alt=""
+            className="absolute inset-0 h-full w-full object-cover object-top"
           />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_72%_38%,rgba(215,197,178,0.14),transparent_28%),linear-gradient(90deg,rgba(10,9,7,0.94),rgba(10,9,7,0.62)_38%,rgba(10,9,7,0.2)_72%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_72%_38%,rgba(215,197,178,0.16),transparent_28%),linear-gradient(90deg,rgba(10,9,7,0.94),rgba(10,9,7,0.63)_40%,rgba(10,9,7,0.16)_72%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(12,10,8,0.16),rgba(12,10,8,0.1)_36%,rgba(12,10,8,0.28)_100%)] mix-blend-multiply" />
 
           <div className="relative mx-auto flex min-h-[100dvh] max-w-[1480px] flex-col justify-end px-6 pb-12 pt-44 sm:px-10 lg:px-16">
             <div className="reveal max-w-3xl">
@@ -32,8 +34,8 @@ export default function HomePage() {
               <div className="mt-7 h-px w-10 bg-[var(--sand)]" />
               <p className="mt-6 max-w-lg text-lg leading-8 text-white/86">{site.description}</p>
               <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
-                <ArrowButton href="/contact" variant="light">Let&apos;s work together</ArrowButton>
-                <ArrowButton href="/work" variant="outline">View our work</ArrowButton>
+                <ArrowButton href="https://cal.com/adxengine/savannah-example" variant="light">Book a call</ArrowButton>
+                <ArrowButton href="/work" variant="outline">View my work</ArrowButton>
               </div>
             </div>
 
@@ -83,7 +85,7 @@ export default function HomePage() {
                 <ArrowButton href="/work" variant="outline">Watch more</ArrowButton>
               </div>
             </div>
-            <div className="grid auto-cols-[230px] grid-flow-col gap-4 overflow-x-auto pb-4 md:grid-flow-row md:grid-cols-3 lg:grid-cols-6 lg:overflow-visible">
+            <div className="grid auto-cols-[230px] grid-flow-col gap-4 overflow-x-auto [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:grid-flow-row md:grid-cols-3 lg:grid-cols-6 lg:overflow-visible">
               {featuredWork.map((item, index) => <ReelCard key={item.title} {...item} index={index} />)}
             </div>
           </div>
@@ -91,8 +93,8 @@ export default function HomePage() {
 
         <section className="grid bg-[var(--paper)] lg:grid-cols-[0.88fr_1.52fr]">
           <div
-            className="min-h-[460px] bg-cover bg-center lg:min-h-[620px]"
-            style={{ backgroundImage: "url(https://picsum.photos/seed/savannah-portrait-boat/1100/900)" }}
+            className="min-h-[460px] bg-cover lg:min-h-[620px]"
+            style={{ backgroundImage: "url('/savannah11.jpg')" }}
           />
           <div className="grid gap-10 px-6 py-16 sm:px-10 lg:grid-cols-[1fr_0.9fr] lg:px-16 lg:py-24">
             <div>
@@ -122,8 +124,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="bg-[var(--paper-soft)] py-16">
-          <SectionIntro eyebrow="My Process" title="A clear path from first idea to finished content." align="split" />
+        <section className="bg-[var(--paper-soft)] py-16">          <p className="eyebrow mx-auto max-w-[1400px] px-6 sm:px-10 lg:px-16">My Process</p>
           <div className="mx-auto mt-12 grid max-w-[1400px] gap-8 px-6 sm:px-10 md:grid-cols-2 lg:grid-cols-4 lg:px-16">
             {processSteps.map(({ title, text, icon: Icon }, index) => (
               <article key={title} className="relative">
@@ -140,7 +141,7 @@ export default function HomePage() {
         </section>
 
         <section className="grid bg-[var(--espresso)] text-[var(--paper)] lg:grid-cols-[1fr_1.05fr]">
-          <div className="hidden items-end bg-[url('https://picsum.photos/seed/savannah-tennessee-field/1000/900')] bg-cover bg-center p-12 lg:flex">
+          <div className="hidden items-end bg-[url('/savannah12.jpg')] bg-cover bg-center p-12 lg:flex">
             <div className="flex items-center gap-3 bg-black/30 px-4 py-3 text-sm backdrop-blur-md">
               <MapPin className="size-4" />
               Based in {site.location}
@@ -168,7 +169,7 @@ export default function HomePage() {
                 </select>
               </div>
               <textarea className="field min-h-28" placeholder="Tell me about your project and goals..." aria-label="Project message" />
-              <button className="bg-[var(--sand)] py-4 text-[11px] font-bold uppercase tracking-[0.2em] text-[var(--charcoal)] transition-colors duration-500 hover:bg-[var(--paper)]">
+              <button type="submit" className="bg-[var(--sand)] py-4 text-[11px] font-bold uppercase tracking-[0.2em] text-[var(--charcoal)] transition-colors duration-500 hover:bg-[var(--paper)]">
                 Send Inquiry
               </button>
             </form>

@@ -39,7 +39,7 @@ export default function ProcessPage() {
         <section className="grid bg-[var(--espresso)] text-[var(--paper)] lg:grid-cols-[1fr_1fr]">
           <div
             className="min-h-[440px] bg-cover bg-center"
-            style={{ backgroundImage: "url(https://picsum.photos/seed/savannah-editing-desk/1100/800)" }}
+            style={{ backgroundImage: "url('/savannah16.jpg')" }}
           />
           <div className="flex items-center px-6 py-20 sm:px-10 lg:px-16">
             <div>
@@ -49,7 +49,7 @@ export default function ProcessPage() {
                 Files are delivered with practical context, so your team knows what each piece is for and where it belongs.
               </p>
               <div className="mt-8">
-                <ArrowButton href="/contact" variant="light">Plan a content day</ArrowButton>
+                <ArrowButton href="https://cal.com/adxengine/savannah-example" variant="light">Book a call</ArrowButton>
               </div>
             </div>
           </div>

@@ -46,7 +46,7 @@ export default function WorkPage() {
                 The final delivery can be practical and still feel artful. The strongest social content has a clear job, a natural pace, and enough atmosphere to make the viewer stay.
               </p>
               <div className="mt-8">
-                <ArrowButton href="/contact">Discuss a project</ArrowButton>
+                <ArrowButton href="https://cal.com/adxengine/savannah-example">Book a call</ArrowButton>
               </div>
             </div>
           </div>

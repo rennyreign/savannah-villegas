@@ -26,7 +26,7 @@ export default function AboutPage() {
           </div>
           <div
             className="min-h-[520px] bg-cover bg-center opacity-90"
-            style={{ backgroundImage: "url(https://picsum.photos/seed/savannah-camera-portrait-soft/1200/1200)" }}
+            style={{ backgroundImage: "url('/savannah15.jpg')" }}
           />
         </section>
 
@@ -67,7 +67,7 @@ export default function AboutPage() {
         <section className="grid lg:grid-cols-2">
           <div
             className="min-h-[520px] bg-cover bg-center"
-            style={{ backgroundImage: "url(https://picsum.photos/seed/savannah-tennessee-motherhood/1100/900)" }}
+            style={{ backgroundImage: "url('/savannah13.jpg')" }}
           />
           <div className="flex items-center px-6 py-20 sm:px-10 lg:px-16">
             <div>

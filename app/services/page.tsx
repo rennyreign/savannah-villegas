@@ -65,7 +65,7 @@ export default function ServicesPage() {
               <p className="eyebrow text-[var(--sand)]">Not sure where to start?</p>
               <h2 className="mt-5 max-w-3xl font-serif text-5xl leading-none text-white">Tell me what you&apos;re trying to make easier.</h2>
             </div>
-            <ArrowButton href="/contact" variant="light">Start an inquiry</ArrowButton>
+            <ArrowButton href="https://cal.com/adxengine/savannah-example" variant="light">Book a call</ArrowButton>
           </div>
         </section>
       </main>

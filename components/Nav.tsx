@@ -55,12 +55,14 @@ export default function Nav() {
         </nav>
 
         <div className="pointer-events-auto hidden items-center gap-5 text-[var(--paper)] mix-blend-difference lg:flex">
-          <Link
-            href="/contact"
+          <a
+            href="https://cal.com/adxengine/savannah-example"
+            target="_blank"
+            rel="noopener noreferrer"
             className="bg-[var(--sand)] px-6 py-4 text-[11px] font-bold uppercase tracking-[0.18em] text-[var(--charcoal)] mix-blend-normal transition-colors duration-300 hover:bg-[var(--paper)]"
           >
-            Inquire
-          </Link>
+            Book a call
+          </a>
           <a href={`tel:${site.phone}`} className="flex items-center gap-2 text-sm font-semibold">
             <Phone className="size-4" strokeWidth={1.7} />
             {site.phone}
@@ -68,9 +70,9 @@ export default function Nav() {
         </div>
 
         <div className="pointer-events-auto flex items-center gap-2.5 lg:hidden">
-          <Link href="/contact" onClick={() => setOpen(false)} className="bg-[var(--sand)] px-4 py-3 text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--charcoal)]">
-            Inquire
-          </Link>
+          <a href="https://cal.com/adxengine/savannah-example" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)} className="bg-[var(--sand)] px-4 py-3 text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--charcoal)]">
+            Book a call
+          </a>
           <button
             type="button"
             onClick={() => setOpen((o) => !o)}
@@ -98,13 +100,15 @@ export default function Nav() {
               </Link>
             ))}
           </nav>
-          <Link
-            href="/contact"
+          <a
+            href="https://cal.com/adxengine/savannah-example"
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={() => setOpen(false)}
             className="mt-8 block w-full bg-[var(--sand)] py-4 text-center text-[11px] font-bold uppercase tracking-[0.18em] text-[var(--charcoal)]"
           >
-            Send Inquiry
-          </Link>
+            Book a call
+          </a>
         </div>
       )}
     </>
