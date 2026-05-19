@@ -155,12 +155,12 @@ export default function HomePage() {
             </p>
             <form className="mt-8 grid gap-3">
               <div className="grid gap-3 sm:grid-cols-2">
-                <input className="field" placeholder="Your name" aria-label="Your name" />
-                <input className="field" placeholder="Email address" aria-label="Email address" />
+                <input className="field" placeholder="Your name" aria-label="Your name" required />
+                <input className="field" placeholder="Email address" aria-label="Email address" type="email" required />
               </div>
               <div className="grid gap-3 sm:grid-cols-2">
-                <input className="field" placeholder="Business / brand" aria-label="Business or brand" />
-                <select className="field" aria-label="What do you need help with?" defaultValue="">
+                <input className="field" placeholder="Business / brand" aria-label="Business or brand" required />
+                <select className="field" aria-label="What do you need help with?" defaultValue="" required>
                   <option value="" disabled>What do you need help with?</option>
                   <option>Videography</option>
                   <option>Editing</option>
@@ -168,7 +168,7 @@ export default function HomePage() {
                   <option>Strategy support</option>
                 </select>
               </div>
-              <textarea className="field min-h-28" placeholder="Tell me about your project and goals..." aria-label="Project message" />
+              <textarea className="field min-h-28" placeholder="Tell me about your project and goals..." aria-label="Project message" required />
               <button type="submit" className="bg-[var(--sand)] py-4 text-[11px] font-bold uppercase tracking-[0.2em] text-[var(--charcoal)] transition-colors duration-500 hover:bg-[var(--paper)]">
                 Send Inquiry
               </button>

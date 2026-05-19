@@ -35,19 +35,19 @@ export default function ContactPage() {
               <div className="grid gap-4 sm:grid-cols-2">
                 <label className="grid gap-2 text-[11px] font-bold uppercase tracking-[0.16em] text-white/70">
                   Name
-                  <input className="field" placeholder="Your name" />
+                  <input className="field" placeholder="Your name" required />
                 </label>
                 <label className="grid gap-2 text-[11px] font-bold uppercase tracking-[0.16em] text-white/70">
                   Email
-                  <input className="field" placeholder="Email address" type="email" />
+                  <input className="field" placeholder="Email address" type="email" required />
                 </label>
                 <label className="grid gap-2 text-[11px] font-bold uppercase tracking-[0.16em] text-white/70">
                   Brand / Business
-                  <input className="field" placeholder="Business name" />
+                  <input className="field" placeholder="Business name" required />
                 </label>
                 <label className="grid gap-2 text-[11px] font-bold uppercase tracking-[0.16em] text-white/70">
                   Budget Range
-                  <select className="field" defaultValue="">
+                  <select className="field" defaultValue="" required>
                     <option value="" disabled>Select range</option>
                     <option>Project-based</option>
                     <option>Monthly support</option>
@@ -57,7 +57,7 @@ export default function ContactPage() {
               </div>
               <label className="mt-4 grid gap-2 text-[11px] font-bold uppercase tracking-[0.16em] text-white/70">
                 What help do you need?
-                <select className="field" defaultValue="">
+                <select className="field" defaultValue="" required>
                   <option value="" disabled>Choose a service</option>
                   <option>Social media editing</option>
                   <option>Brand videography</option>
@@ -68,9 +68,9 @@ export default function ContactPage() {
               </label>
               <label className="mt-4 grid gap-2 text-[11px] font-bold uppercase tracking-[0.16em] text-white/70">
                 Message
-                <textarea className="field min-h-36" placeholder="Tell me about the project, timeline, and what success would look like." />
+                <textarea className="field min-h-36" placeholder="Tell me about the project, timeline, and what success would look like." required />
               </label>
-              <button className="mt-5 w-full bg-[var(--sand)] py-4 text-[11px] font-bold uppercase tracking-[0.2em] text-[var(--charcoal)] transition-colors duration-500 hover:bg-[var(--paper)]">
+              <button type="submit" className="mt-5 w-full bg-[var(--sand)] py-4 text-[11px] font-bold uppercase tracking-[0.2em] text-[var(--charcoal)] transition-colors duration-500 hover:bg-[var(--paper)]">
                 Send Inquiry
               </button>
               <p className="mt-4 text-center text-xs text-white/54">I typically respond within 24 hours.</p>
