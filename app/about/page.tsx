@@ -26,7 +26,7 @@ export default function AboutPage() {
           </div>
           <div
             className="min-h-[520px] bg-cover bg-center opacity-90"
-            style={{ backgroundImage: "url('/savannah15.jpg')" }}
+            style={{ backgroundImage: "url('/savannah-about.jpg')" }}
           />
         </section>
 
