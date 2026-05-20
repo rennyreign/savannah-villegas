@@ -28,9 +28,9 @@ export default function WorkPage() {
         </section>
 
         <section className="px-6 pb-24 sm:px-10 lg:px-16">
-          <div className="mx-auto grid max-w-[1400px] gap-5 md:grid-cols-2 lg:grid-cols-3">
+          <div className="mx-auto grid max-w-[1400px] gap-6 md:grid-cols-2 lg:grid-cols-4">
             {featuredWork.map((item, index) => (
-              <div key={item.title} className={index === 1 || index === 4 ? "lg:mt-16" : ""}>
+              <div key={item.title} className={index === 1 || index === 3 ? "lg:mt-16" : ""}>
                 <ReelCard {...item} index={index} />
               </div>
             ))}

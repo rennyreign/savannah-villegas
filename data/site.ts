@@ -94,34 +94,24 @@ export const services = [
 
 export const featuredWork = [
   {
-    title: "Lakeside Wellness",
+    title: "Brand Story",
     category: "Brand Reel",
-    image: "https://picsum.photos/seed/savannah-lake-editorial/720/1040",
+    video: "https://sortedstorage.s3.eu-north-1.amazonaws.com/savannahvid1.MP4",
   },
   {
-    title: "Coffee House Launch",
+    title: "Social Launch",
     category: "Social Campaign",
-    image: "https://picsum.photos/seed/savannah-coffee-cream/720/1040",
+    video: "https://sortedstorage.s3.eu-north-1.amazonaws.com/savannahvid2.MP4",
   },
   {
-    title: "Boutique Interior",
+    title: "Behind the Scenes",
     category: "Content Package",
-    image: "https://picsum.photos/seed/savannah-boutique-room/720/1040",
+    video: "https://sortedstorage.s3.eu-north-1.amazonaws.com/savannahvid3.MP4",
   },
   {
-    title: "Founder Story",
+    title: "Event Coverage",
     category: "Brand Film",
-    image: "https://picsum.photos/seed/savannah-founder-hat/720/1040",
-  },
-  {
-    title: "Field Notes",
-    category: "Reels Edit",
-    image: "https://picsum.photos/seed/savannah-phone-field/720/1040",
-  },
-  {
-    title: "Supper Club",
-    category: "Event Coverage",
-    image: "https://picsum.photos/seed/savannah-table-food/720/1040",
+    video: "https://sortedstorage.s3.amazonaws.com/savannahvid4.MP4",
   },
 ]
 

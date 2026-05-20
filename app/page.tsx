@@ -85,8 +85,8 @@ export default function HomePage() {
                 <ArrowButton href="/work" variant="outline">Watch more</ArrowButton>
               </div>
             </div>
-            <div className="grid auto-cols-[230px] grid-flow-col gap-4 overflow-x-auto [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:grid-flow-row md:grid-cols-3 lg:grid-cols-6 lg:overflow-visible">
-              {featuredWork.map((item, index) => <ReelCard key={item.title} {...item} index={index} />)}
+            <div className="grid auto-cols-[280px] grid-flow-col gap-5 overflow-x-auto [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:grid-flow-row md:grid-cols-2 lg:grid-cols-4 lg:overflow-visible">
+              {featuredWork.map((item, index) => <ReelCard key={item.title} {...item} index={index} autoPlay />)}
             </div>
           </div>
         </section>
