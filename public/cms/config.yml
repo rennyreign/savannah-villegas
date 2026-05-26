@@ -136,11 +136,13 @@ collections:
 
   - name: "work"
     label: "📽 Featured Work"
+    description: "Up to 8 work items. Items 1–4 (by order) appear on the homepage. All 8 appear on the Work page. Leave Title blank to hide a slot."
     files:
       - name: "work1"
         label: "Work Item 1"
         file: "content/work/item1.json"
         fields:
+          - { name: "order", label: "Display Order", widget: "number", hint: "1 = first. Items 1–4 show on homepage." }
           - { name: "title", label: "Title", widget: "string" }
           - { name: "category", label: "Category", widget: "string" }
           - { name: "video", label: "Video URL", widget: "string", hint: "Paste a direct MP4 or hosted video URL" }
@@ -149,6 +151,7 @@ collections:
         label: "Work Item 2"
         file: "content/work/item2.json"
         fields:
+          - { name: "order", label: "Display Order", widget: "number", hint: "1 = first. Items 1–4 show on homepage." }
           - { name: "title", label: "Title", widget: "string" }
           - { name: "category", label: "Category", widget: "string" }
           - { name: "video", label: "Video URL", widget: "string", hint: "Paste a direct MP4 or hosted video URL" }
@@ -157,6 +160,7 @@ collections:
         label: "Work Item 3"
         file: "content/work/item3.json"
         fields:
+          - { name: "order", label: "Display Order", widget: "number", hint: "1 = first. Items 1–4 show on homepage." }
           - { name: "title", label: "Title", widget: "string" }
           - { name: "category", label: "Category", widget: "string" }
           - { name: "video", label: "Video URL", widget: "string", hint: "Paste a direct MP4 or hosted video URL" }
@@ -165,9 +169,46 @@ collections:
         label: "Work Item 4"
         file: "content/work/item4.json"
         fields:
+          - { name: "order", label: "Display Order", widget: "number", hint: "1 = first. Items 1–4 show on homepage." }
           - { name: "title", label: "Title", widget: "string" }
           - { name: "category", label: "Category", widget: "string" }
           - { name: "video", label: "Video URL", widget: "string", hint: "Paste a direct MP4 or hosted video URL" }
+          - { name: "thumbnail", label: "Thumbnail Image", widget: "image", required: false, hint: "Square or portrait crop. Recommended: 560×700px, JPG under 500KB." }
+      - name: "work5"
+        label: "Work Item 5"
+        file: "content/work/item5.json"
+        fields:
+          - { name: "order", label: "Display Order", widget: "number", hint: "Leave Title blank to hide this slot." }
+          - { name: "title", label: "Title", widget: "string", required: false }
+          - { name: "category", label: "Category", widget: "string", required: false }
+          - { name: "video", label: "Video URL", widget: "string", required: false, hint: "Paste a direct MP4 or hosted video URL" }
+          - { name: "thumbnail", label: "Thumbnail Image", widget: "image", required: false, hint: "Square or portrait crop. Recommended: 560×700px, JPG under 500KB." }
+      - name: "work6"
+        label: "Work Item 6"
+        file: "content/work/item6.json"
+        fields:
+          - { name: "order", label: "Display Order", widget: "number", hint: "Leave Title blank to hide this slot." }
+          - { name: "title", label: "Title", widget: "string", required: false }
+          - { name: "category", label: "Category", widget: "string", required: false }
+          - { name: "video", label: "Video URL", widget: "string", required: false, hint: "Paste a direct MP4 or hosted video URL" }
+          - { name: "thumbnail", label: "Thumbnail Image", widget: "image", required: false, hint: "Square or portrait crop. Recommended: 560×700px, JPG under 500KB." }
+      - name: "work7"
+        label: "Work Item 7"
+        file: "content/work/item7.json"
+        fields:
+          - { name: "order", label: "Display Order", widget: "number", hint: "Leave Title blank to hide this slot." }
+          - { name: "title", label: "Title", widget: "string", required: false }
+          - { name: "category", label: "Category", widget: "string", required: false }
+          - { name: "video", label: "Video URL", widget: "string", required: false, hint: "Paste a direct MP4 or hosted video URL" }
+          - { name: "thumbnail", label: "Thumbnail Image", widget: "image", required: false, hint: "Square or portrait crop. Recommended: 560×700px, JPG under 500KB." }
+      - name: "work8"
+        label: "Work Item 8"
+        file: "content/work/item8.json"
+        fields:
+          - { name: "order", label: "Display Order", widget: "number", hint: "Leave Title blank to hide this slot." }
+          - { name: "title", label: "Title", widget: "string", required: false }
+          - { name: "category", label: "Category", widget: "string", required: false }
+          - { name: "video", label: "Video URL", widget: "string", required: false, hint: "Paste a direct MP4 or hosted video URL" }
           - { name: "thumbnail", label: "Thumbnail Image", widget: "image", required: false, hint: "Square or portrait crop. Recommended: 560×700px, JPG under 500KB." }
 
   - name: "process"

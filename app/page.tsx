@@ -3,7 +3,7 @@ import Footer from "@/components/Footer"
 import Nav from "@/components/Nav"
 import PageTransition from "@/components/PageTransition"
 import ReelCard from "@/components/ReelCard"
-import { loadAboutContent, loadFeaturedWork, loadHeroContent, loadHomepageContact, loadHomepageFeaturedWork, loadHomepageIntro, loadProcessSteps, loadServices, loadSiteContent } from "@/lib/content"
+import { loadAboutContent, loadHeroContent, loadHomepageContact, loadHomepageFeaturedWork, loadHomepageIntro, loadHomepageWork, loadProcessSteps, loadServices, loadSiteContent } from "@/lib/content"
 import { imgSrc } from "@/lib/image"
 import {
   ArrowRight,
@@ -63,7 +63,7 @@ export default function HomePage() {
   const contact_section = loadHomepageContact()
   const about = loadAboutContent()
   const services = loadServices()
-  const featuredWork = loadFeaturedWork()
+  const featuredWork = loadHomepageWork()
   const processSteps = loadProcessSteps()
 
   return (

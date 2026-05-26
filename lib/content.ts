@@ -158,19 +158,33 @@ export function loadServices(): ServiceItem[] {
 }
 
 export type WorkItem = {
+  order: number
   title: string
   category: string
   video: string
   thumbnail: string
 }
 
+const WORK_DEFAULT: WorkItem = { order: 99, title: "", category: "", video: "", thumbnail: "" }
+
 export function loadFeaturedWork(): WorkItem[] {
   return [
-    loadJSON<WorkItem>("work/item1.json", { title: "", category: "", video: "", thumbnail: "" }),
-    loadJSON<WorkItem>("work/item2.json", { title: "", category: "", video: "", thumbnail: "" }),
-    loadJSON<WorkItem>("work/item3.json", { title: "", category: "", video: "", thumbnail: "" }),
-    loadJSON<WorkItem>("work/item4.json", { title: "", category: "", video: "", thumbnail: "" }),
-  ].filter((item) => item.title !== "")
+    loadJSON<WorkItem>("work/item1.json", { ...WORK_DEFAULT, order: 1 }),
+    loadJSON<WorkItem>("work/item2.json", { ...WORK_DEFAULT, order: 2 }),
+    loadJSON<WorkItem>("work/item3.json", { ...WORK_DEFAULT, order: 3 }),
+    loadJSON<WorkItem>("work/item4.json", { ...WORK_DEFAULT, order: 4 }),
+    loadJSON<WorkItem>("work/item5.json", { ...WORK_DEFAULT, order: 5 }),
+    loadJSON<WorkItem>("work/item6.json", { ...WORK_DEFAULT, order: 6 }),
+    loadJSON<WorkItem>("work/item7.json", { ...WORK_DEFAULT, order: 7 }),
+    loadJSON<WorkItem>("work/item8.json", { ...WORK_DEFAULT, order: 8 }),
+  ]
+    .filter((item) => item.title !== "")
+    .sort((a, b) => a.order - b.order)
+    .slice(0, 8)
+}
+
+export function loadHomepageWork(): WorkItem[] {
+  return loadFeaturedWork().slice(0, 4)
 }
 
 export type ProcessStep = {
