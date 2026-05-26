@@ -1,0 +1,52 @@
+{
+  "services": [
+    {
+      "title": "Social Media Editing",
+      "short": "Short-form edits built to stop the scroll without losing the soul of the story.",
+      "detail": "Polished reels, TikToks, shorts, captions, pacing, and content polish for brands with footage that needs a stronger finish.",
+      "deliverables": ["Reels", "TikTok", "Shorts", "Caption pacing"],
+      "ideal": "Brands with existing footage or recurring content needs.",
+      "icon": "video"
+    },
+    {
+      "title": "Brand Videography",
+      "short": "On-location filming that captures your brand with warmth and intention.",
+      "detail": "Cinematic brand films, launch assets, founder-led content, product moments, and behind-the-scenes storytelling.",
+      "deliverables": ["Brand films", "Promos", "BTS", "Launch content"],
+      "ideal": "Boutiques, hospitality brands, studios, and service-led businesses.",
+      "icon": "camera"
+    },
+    {
+      "title": "Monthly Packages",
+      "short": "Consistent, high-quality content so you always have something to post.",
+      "detail": "A steady production rhythm with planning, filming, editing, and delivery designed around your calendar.",
+      "deliverables": ["Weekly", "Biweekly", "Monthly", "Content calendar"],
+      "ideal": "Businesses that want consistency without managing every detail.",
+      "icon": "calendar-days"
+    },
+    {
+      "title": "Creative Direction",
+      "short": "A clearer visual point of view before the camera ever comes out.",
+      "detail": "Campaign concepts, shot direction, moodboards, content pillars, and creative planning for specific launches or seasons.",
+      "deliverables": ["Concepts", "Shot lists", "Moodboards", "Campaign arcs"],
+      "ideal": "Teams who know they need content, but need the idea sharpened first.",
+      "icon": "pen-tool"
+    },
+    {
+      "title": "Event Coverage",
+      "short": "Editorial coverage for moments worth remembering and repurposing.",
+      "detail": "Warm, observant filming for retreats, launches, brand activations, openings, and intimate gatherings.",
+      "deliverables": ["Event reels", "Recaps", "Social cuts", "Highlight films"],
+      "ideal": "Brands hosting thoughtful experiences or customer-facing moments.",
+      "icon": "clapperboard"
+    },
+    {
+      "title": "Strategy Support",
+      "short": "Guidance on what to post, how to say it, and what actually works.",
+      "detail": "Practical content support for offers, posting cadence, hooks, content themes, and campaign planning.",
+      "deliverables": ["Planning", "Ideas", "Hooks", "Content direction"],
+      "ideal": "Owners who want clearer content without sounding over-produced.",
+      "icon": "messages-square"
+    }
+  ]
+}

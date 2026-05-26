@@ -1,0 +1,24 @@
+{
+  "steps": [
+    {
+      "title": "Discover",
+      "text": "We talk through your goals, audience, offers, and the kind of content your brand actually needs.",
+      "icon": "compass"
+    },
+    {
+      "title": "Plan",
+      "text": "I shape the content plan, shot list, location rhythm, and creative direction so the shoot feels calm.",
+      "icon": "pen-tool"
+    },
+    {
+      "title": "Film / Edit",
+      "text": "I capture clean footage or craft your existing clips into polished social-first edits.",
+      "icon": "camera"
+    },
+    {
+      "title": "Deliver",
+      "text": "You receive ready-to-post content that represents your brand with care and consistency.",
+      "icon": "check"
+    }
+  ]
+}

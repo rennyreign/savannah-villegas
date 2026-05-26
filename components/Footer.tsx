@@ -1,8 +1,18 @@
 import { Instagram, Mail, Play, Send } from "lucide-react"
 import Link from "next/link"
-import { navLinks, site } from "@/data/site"
+import { loadSiteContent } from "@/lib/content"
+
+const navLinks = [
+  { label: "Home", href: "/" },
+  { label: "Services", href: "/services" },
+  { label: "Work", href: "/work" },
+  { label: "About", href: "/about" },
+  { label: "Process", href: "/process" },
+  { label: "FAQ", href: "/contact#faq" },
+]
 
 export default function Footer() {
+  const site = loadSiteContent()
   const currentYear = new Date().getFullYear()
   
   return (

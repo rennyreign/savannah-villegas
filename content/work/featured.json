@@ -1,0 +1,24 @@
+{
+  "items": [
+    {
+      "title": "Brand Story",
+      "category": "Brand Reel",
+      "video": "https://sortedstorage.s3.eu-north-1.amazonaws.com/savannahvid1.MP4"
+    },
+    {
+      "title": "Social Launch",
+      "category": "Social Campaign",
+      "video": "https://sortedstorage.s3.eu-north-1.amazonaws.com/savannahvid2.MP4"
+    },
+    {
+      "title": "Behind the Scenes",
+      "category": "Content Package",
+      "video": "https://sortedstorage.s3.eu-north-1.amazonaws.com/savannahvid3.MP4"
+    },
+    {
+      "title": "Event Coverage",
+      "category": "Brand Film",
+      "video": "https://sortedstorage.s3.amazonaws.com/savannahvid4.MP4"
+    }
+  ]
+}

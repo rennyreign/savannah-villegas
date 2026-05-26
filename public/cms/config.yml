@@ -1,0 +1,280 @@
+backend:
+  name: git-gateway
+  branch: main
+
+local_backend:
+  url: http://localhost:8081/api/v1
+  allowed_hosts: ['localhost', '127.0.0.1']
+
+media_folder: public/uploads
+public_folder: /uploads
+
+collections:
+  - name: "homepage"
+    label: "🏠 Homepage"
+    files:
+      - name: "hero"
+        label: "Hero — Main Banner"
+        file: "content/homepage/hero.json"
+        fields:
+          - { name: "heroImage", label: "Background Photo", widget: "image", required: false, hint: "Landscape photo. Recommended: 1800×1200px or wider, JPG under 1.5MB. Subject should be on the right side." }
+          - { name: "tagline", label: "Eyebrow Tagline", widget: "string" }
+          - { name: "heading", label: "Main Heading", widget: "text" }
+          - { name: "description", label: "Description", widget: "text" }
+          - { name: "ctaBookLabel", label: "Primary Button Label", widget: "string" }
+          - { name: "ctaBookHref", label: "Primary Button Link", widget: "string" }
+          - { name: "ctaWorkLabel", label: "Secondary Button Label", widget: "string" }
+          - { name: "locationBadge", label: "Location Badge", widget: "string" }
+
+      - name: "intro"
+        label: "About Me — Intro Section"
+        file: "content/homepage/intro.json"
+        fields:
+          - { name: "introImage", label: "Photo", widget: "image", required: false, hint: "Portrait or square photo. Recommended: 900×1100px, JPG under 1MB." }
+          - { name: "introEyebrow", label: "Eyebrow Label", widget: "string" }
+          - { name: "introHeading", label: "Heading", widget: "text" }
+          - { name: "introBody1", label: "Body Paragraph 1", widget: "text" }
+          - { name: "introBody2", label: "Body Paragraph 2", widget: "text" }
+          - { name: "introSignature", label: "Signature", widget: "string" }
+
+      - name: "featured-work"
+        label: "Featured Work — Section Header"
+        file: "content/homepage/featured-work.json"
+        fields:
+          - { name: "workEyebrow", label: "Eyebrow Label", widget: "string" }
+          - { name: "workHeading", label: "Heading", widget: "text" }
+          - { name: "workSubtext", label: "Subtext", widget: "string" }
+          - { name: "workCtaLabel", label: "Button Label", widget: "string" }
+
+      - name: "contact"
+        label: "Contact — Enquiry Section"
+        file: "content/homepage/contact.json"
+        fields:
+          - { name: "contactImage", label: "Background Photo", widget: "image", required: false, hint: "Portrait or square photo. Recommended: 900×1100px, JPG under 1MB." }
+          - { name: "contactEyebrow", label: "Eyebrow Label", widget: "string" }
+          - { name: "contactHeading", label: "Heading", widget: "text" }
+          - { name: "contactSubtext", label: "Subtext", widget: "text" }
+          - { name: "contactResponseNote", label: "Response Time Note", widget: "string" }
+
+  - name: "services"
+    label: "🎬 Services"
+    files:
+      - name: "social-media-editing"
+        label: "Social Media Editing"
+        file: "content/services/social-media-editing.json"
+        fields:
+          - { name: "title", label: "Title", widget: "string" }
+          - { name: "short", label: "Short Description", widget: "text" }
+          - { name: "detail", label: "Full Detail", widget: "text" }
+          - { name: "ideal", label: "Best For", widget: "text" }
+          - { name: "deliverable1", label: "Deliverable 1", widget: "string" }
+          - { name: "deliverable2", label: "Deliverable 2", widget: "string" }
+          - { name: "deliverable3", label: "Deliverable 3", widget: "string" }
+          - { name: "deliverable4", label: "Deliverable 4", widget: "string" }
+      - name: "brand-videography"
+        label: "Brand Videography"
+        file: "content/services/brand-videography.json"
+        fields:
+          - { name: "title", label: "Title", widget: "string" }
+          - { name: "short", label: "Short Description", widget: "text" }
+          - { name: "detail", label: "Full Detail", widget: "text" }
+          - { name: "ideal", label: "Best For", widget: "text" }
+          - { name: "deliverable1", label: "Deliverable 1", widget: "string" }
+          - { name: "deliverable2", label: "Deliverable 2", widget: "string" }
+          - { name: "deliverable3", label: "Deliverable 3", widget: "string" }
+          - { name: "deliverable4", label: "Deliverable 4", widget: "string" }
+      - name: "monthly-packages"
+        label: "Monthly Packages"
+        file: "content/services/monthly-packages.json"
+        fields:
+          - { name: "title", label: "Title", widget: "string" }
+          - { name: "short", label: "Short Description", widget: "text" }
+          - { name: "detail", label: "Full Detail", widget: "text" }
+          - { name: "ideal", label: "Best For", widget: "text" }
+          - { name: "deliverable1", label: "Deliverable 1", widget: "string" }
+          - { name: "deliverable2", label: "Deliverable 2", widget: "string" }
+          - { name: "deliverable3", label: "Deliverable 3", widget: "string" }
+          - { name: "deliverable4", label: "Deliverable 4", widget: "string" }
+      - name: "creative-direction"
+        label: "Creative Direction"
+        file: "content/services/creative-direction.json"
+        fields:
+          - { name: "title", label: "Title", widget: "string" }
+          - { name: "short", label: "Short Description", widget: "text" }
+          - { name: "detail", label: "Full Detail", widget: "text" }
+          - { name: "ideal", label: "Best For", widget: "text" }
+          - { name: "deliverable1", label: "Deliverable 1", widget: "string" }
+          - { name: "deliverable2", label: "Deliverable 2", widget: "string" }
+          - { name: "deliverable3", label: "Deliverable 3", widget: "string" }
+          - { name: "deliverable4", label: "Deliverable 4", widget: "string" }
+      - name: "event-coverage"
+        label: "Event Coverage"
+        file: "content/services/event-coverage.json"
+        fields:
+          - { name: "title", label: "Title", widget: "string" }
+          - { name: "short", label: "Short Description", widget: "text" }
+          - { name: "detail", label: "Full Detail", widget: "text" }
+          - { name: "ideal", label: "Best For", widget: "text" }
+          - { name: "deliverable1", label: "Deliverable 1", widget: "string" }
+          - { name: "deliverable2", label: "Deliverable 2", widget: "string" }
+          - { name: "deliverable3", label: "Deliverable 3", widget: "string" }
+          - { name: "deliverable4", label: "Deliverable 4", widget: "string" }
+      - name: "strategy-support"
+        label: "Strategy Support"
+        file: "content/services/strategy-support.json"
+        fields:
+          - { name: "title", label: "Title", widget: "string" }
+          - { name: "short", label: "Short Description", widget: "text" }
+          - { name: "detail", label: "Full Detail", widget: "text" }
+          - { name: "ideal", label: "Best For", widget: "text" }
+          - { name: "deliverable1", label: "Deliverable 1", widget: "string" }
+          - { name: "deliverable2", label: "Deliverable 2", widget: "string" }
+          - { name: "deliverable3", label: "Deliverable 3", widget: "string" }
+          - { name: "deliverable4", label: "Deliverable 4", widget: "string" }
+
+  - name: "work"
+    label: "📽 Featured Work"
+    files:
+      - name: "work1"
+        label: "Work Item 1"
+        file: "content/work/item1.json"
+        fields:
+          - { name: "title", label: "Title", widget: "string" }
+          - { name: "category", label: "Category", widget: "string" }
+          - { name: "video", label: "Video URL", widget: "string", hint: "Paste a direct MP4 or hosted video URL" }
+          - { name: "thumbnail", label: "Thumbnail Image", widget: "image", required: false, hint: "Square or portrait crop. Recommended: 560×700px, JPG under 500KB." }
+      - name: "work2"
+        label: "Work Item 2"
+        file: "content/work/item2.json"
+        fields:
+          - { name: "title", label: "Title", widget: "string" }
+          - { name: "category", label: "Category", widget: "string" }
+          - { name: "video", label: "Video URL", widget: "string", hint: "Paste a direct MP4 or hosted video URL" }
+          - { name: "thumbnail", label: "Thumbnail Image", widget: "image", required: false, hint: "Square or portrait crop. Recommended: 560×700px, JPG under 500KB." }
+      - name: "work3"
+        label: "Work Item 3"
+        file: "content/work/item3.json"
+        fields:
+          - { name: "title", label: "Title", widget: "string" }
+          - { name: "category", label: "Category", widget: "string" }
+          - { name: "video", label: "Video URL", widget: "string", hint: "Paste a direct MP4 or hosted video URL" }
+          - { name: "thumbnail", label: "Thumbnail Image", widget: "image", required: false, hint: "Square or portrait crop. Recommended: 560×700px, JPG under 500KB." }
+      - name: "work4"
+        label: "Work Item 4"
+        file: "content/work/item4.json"
+        fields:
+          - { name: "title", label: "Title", widget: "string" }
+          - { name: "category", label: "Category", widget: "string" }
+          - { name: "video", label: "Video URL", widget: "string", hint: "Paste a direct MP4 or hosted video URL" }
+          - { name: "thumbnail", label: "Thumbnail Image", widget: "image", required: false, hint: "Square or portrait crop. Recommended: 560×700px, JPG under 500KB." }
+
+  - name: "process"
+    label: "⚙️ Process"
+    files:
+      - name: "page"
+        label: "Process Page Images"
+        file: "content/process/page.json"
+        fields:
+          - { name: "ctaImage", label: "CTA Section Photo", widget: "image", required: false, hint: "Landscape or portrait photo. Recommended: 1000×700px, JPG under 1MB." }
+      - name: "step1"
+        label: "Step 1 — Discover"
+        file: "content/process/step1.json"
+        fields:
+          - { name: "title", label: "Title", widget: "string" }
+          - { name: "text", label: "Description", widget: "text" }
+      - name: "step2"
+        label: "Step 2 — Plan"
+        file: "content/process/step2.json"
+        fields:
+          - { name: "title", label: "Title", widget: "string" }
+          - { name: "text", label: "Description", widget: "text" }
+      - name: "step3"
+        label: "Step 3 — Film / Edit"
+        file: "content/process/step3.json"
+        fields:
+          - { name: "title", label: "Title", widget: "string" }
+          - { name: "text", label: "Description", widget: "text" }
+      - name: "step4"
+        label: "Step 4 — Deliver"
+        file: "content/process/step4.json"
+        fields:
+          - { name: "title", label: "Title", widget: "string" }
+          - { name: "text", label: "Description", widget: "text" }
+
+  - name: "about"
+    label: "👤 About"
+    files:
+      - name: "content"
+        label: "About Content"
+        file: "content/about/content.json"
+        fields:
+          - { name: "heroImage", label: "Hero Background Photo", widget: "image", required: false, hint: "Landscape photo. Recommended: 1400×900px or wider, JPG under 1.5MB." }
+          - { name: "bottomImage", label: "Bottom Section Photo", widget: "image", required: false, hint: "Portrait or square photo. Recommended: 1000×1000px, JPG under 1MB." }
+          - { name: "heroHeading", label: "Hero Heading", widget: "text" }
+          - { name: "heroSubheading", label: "Hero Subheading", widget: "text" }
+          - { name: "philosophyTitle", label: "Philosophy Title", widget: "text" }
+          - { name: "philosophyText", label: "Philosophy Body", widget: "text" }
+          - { name: "pullQuote", label: "Pull Quote", widget: "text" }
+          - { name: "col1Text", label: "Body Column 1", widget: "text" }
+          - { name: "col2Text", label: "Body Column 2", widget: "text" }
+          - { name: "humanFirstEyebrow", label: "Human First Eyebrow", widget: "string" }
+          - { name: "humanFirstHeading", label: "Human First Heading", widget: "text" }
+          - { name: "humanFirstBody1", label: "Human First Body 1", widget: "text" }
+          - { name: "humanFirstBody2", label: "Human First Body 2", widget: "text" }
+          - { name: "value1Title", label: "Value 1 Title", widget: "string" }
+          - { name: "value1Text", label: "Value 1 Text", widget: "text" }
+          - { name: "value1Icon", label: "Value 1 Icon", widget: "string", hint: "check, users, leaf, sprout" }
+          - { name: "value2Title", label: "Value 2 Title", widget: "string" }
+          - { name: "value2Text", label: "Value 2 Text", widget: "text" }
+          - { name: "value2Icon", label: "Value 2 Icon", widget: "string", hint: "check, users, leaf, sprout" }
+          - { name: "value3Title", label: "Value 3 Title", widget: "string" }
+          - { name: "value3Text", label: "Value 3 Text", widget: "text" }
+          - { name: "value3Icon", label: "Value 3 Icon", widget: "string", hint: "check, users, leaf, sprout" }
+          - { name: "value4Title", label: "Value 4 Title", widget: "string" }
+          - { name: "value4Text", label: "Value 4 Text", widget: "text" }
+          - { name: "value4Icon", label: "Value 4 Icon", widget: "string", hint: "check, users, leaf, sprout" }
+
+  - name: "contact"
+    label: "📬 Contact / FAQ"
+    files:
+      - name: "faq1"
+        label: "FAQ 1"
+        file: "content/contact/faq1.json"
+        fields:
+          - { name: "question", label: "Question", widget: "string" }
+          - { name: "answer", label: "Answer", widget: "text" }
+      - name: "faq2"
+        label: "FAQ 2"
+        file: "content/contact/faq2.json"
+        fields:
+          - { name: "question", label: "Question", widget: "string" }
+          - { name: "answer", label: "Answer", widget: "text" }
+      - name: "faq3"
+        label: "FAQ 3"
+        file: "content/contact/faq3.json"
+        fields:
+          - { name: "question", label: "Question", widget: "string" }
+          - { name: "answer", label: "Answer", widget: "text" }
+      - name: "faq4"
+        label: "FAQ 4"
+        file: "content/contact/faq4.json"
+        fields:
+          - { name: "question", label: "Question", widget: "string" }
+          - { name: "answer", label: "Answer", widget: "text" }
+
+  - name: "site"
+    label: "⚙️ Site Settings"
+    files:
+      - name: "general"
+        label: "General"
+        file: "content/site/general.json"
+        fields:
+          - { name: "name", label: "Name", widget: "string" }
+          - { name: "studio", label: "Studio Label", widget: "string" }
+          - { name: "location", label: "Location", widget: "string" }
+          - { name: "phone", label: "Phone", widget: "string" }
+          - { name: "email", label: "Email", widget: "string" }
+          - { name: "tagline", label: "Tagline", widget: "string" }
+          - { name: "description", label: "Meta Description", widget: "text" }
+
+custom_css: "/cms/cms.css"

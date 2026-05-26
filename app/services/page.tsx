@@ -1,8 +1,26 @@
 import ArrowButton from "@/components/ArrowButton"
 import Footer from "@/components/Footer"
 import Nav from "@/components/Nav"
-import { services } from "@/data/site"
+import { loadServices } from "@/lib/content"
+import {
+  CalendarDays,
+  Camera,
+  Clapperboard,
+  MessagesSquare,
+  PenTool,
+  Video,
+} from "lucide-react"
+import type { ElementType } from "react"
 import type { Metadata } from "next"
+
+const serviceIconMap: Record<string, ElementType> = {
+  video: Video,
+  camera: Camera,
+  "calendar-days": CalendarDays,
+  "pen-tool": PenTool,
+  clapperboard: Clapperboard,
+  "messages-square": MessagesSquare,
+}
 
 export const metadata: Metadata = {
   title: "Services | Savannah Villegas",
@@ -10,6 +28,8 @@ export const metadata: Metadata = {
 }
 
 export default function ServicesPage() {
+  const services = loadServices()
+
   return (
     <>
       <Nav />
@@ -30,7 +50,7 @@ export default function ServicesPage() {
           <div className="mx-auto max-w-[1400px] px-6 sm:px-10 lg:px-16">
             <div className="grid gap-6">
               {services.map((service, index) => {
-                const Icon = service.icon
+                const Icon = serviceIconMap[service.icon] ?? Video
                 return (
                   <article key={service.title} className="grid gap-8 border-t border-[var(--stone)]/45 py-10 lg:grid-cols-[90px_0.8fr_1fr_0.55fr]">
                     <p className="font-mono text-sm font-bold text-[var(--olive)]">0{index + 1}</p>

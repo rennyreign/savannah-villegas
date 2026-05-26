@@ -2,7 +2,7 @@ import ArrowButton from "@/components/ArrowButton"
 import Footer from "@/components/Footer"
 import Nav from "@/components/Nav"
 import ReelCard from "@/components/ReelCard"
-import { featuredWork } from "@/data/site"
+import { loadFeaturedWork } from "@/lib/content"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -11,6 +11,8 @@ export const metadata: Metadata = {
 }
 
 export default function WorkPage() {
+  const featuredWork = loadFeaturedWork()
+
   return (
     <>
       <Nav />
@@ -29,7 +31,7 @@ export default function WorkPage() {
 
         <section className="px-6 pb-24 sm:px-10 lg:px-16">
           <div className="mx-auto grid max-w-[1400px] gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {featuredWork.map((item, index) => (
+            {featuredWork.map((item, index: number) => (
               <div key={item.title} className={index === 1 || index === 3 ? "lg:mt-16" : ""}>
                 <ReelCard {...item} index={index} />
               </div>

@@ -1,8 +1,18 @@
 import ArrowButton from "@/components/ArrowButton"
 import Footer from "@/components/Footer"
 import Nav from "@/components/Nav"
-import { processSteps } from "@/data/site"
+import { loadProcessPage, loadProcessSteps } from "@/lib/content"
+import { imgSrc } from "@/lib/image"
+import { Camera, Check, Compass, PenTool } from "lucide-react"
+import type { ElementType } from "react"
 import type { Metadata } from "next"
+
+const processIconMap: Record<string, ElementType> = {
+  compass: Compass,
+  "pen-tool": PenTool,
+  camera: Camera,
+  check: Check,
+}
 
 export const metadata: Metadata = {
   title: "Process | Savannah Villegas",
@@ -10,6 +20,9 @@ export const metadata: Metadata = {
 }
 
 export default function ProcessPage() {
+  const processSteps = loadProcessSteps()
+  const processPage = loadProcessPage()
+
   return (
     <>
       <Nav />
@@ -23,7 +36,9 @@ export default function ProcessPage() {
 
         <section className="px-6 pb-24 sm:px-10 lg:px-16">
           <div className="mx-auto max-w-[1400px]">
-            {processSteps.map(({ title, text, icon: Icon }, index) => (
+            {processSteps.map(({ title, text, icon }, index) => {
+              const Icon = processIconMap[icon] ?? Compass
+              return (
               <article key={title} className="grid gap-8 border-t border-[var(--stone)]/45 py-12 lg:grid-cols-[160px_0.7fr_1fr]">
                 <p className="font-mono text-2xl text-[var(--olive)]">0{index + 1}</p>
                 <div>
@@ -32,14 +47,15 @@ export default function ProcessPage() {
                 </div>
                 <p className="max-w-2xl text-lg leading-8 text-[var(--muted)]">{text}</p>
               </article>
-            ))}
+              )
+            })}
           </div>
         </section>
 
         <section className="grid bg-[var(--espresso)] text-[var(--paper)] lg:grid-cols-[1fr_1fr]">
           <div
             className="min-h-[440px] bg-cover bg-center"
-            style={{ backgroundImage: "url('/savannah16.jpg')" }}
+            style={{ backgroundImage: `url('${imgSrc(processPage.ctaImage, { w: 1000, fit: "cover" })}')` }}
           />
           <div className="flex items-center px-6 py-20 sm:px-10 lg:px-16">
             <div>

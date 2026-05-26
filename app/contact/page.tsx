@@ -1,7 +1,7 @@
 import ArrowButton from "@/components/ArrowButton"
 import Footer from "@/components/Footer"
 import Nav from "@/components/Nav"
-import { faqs, site } from "@/data/site"
+import { loadFaqs, loadSiteContent } from "@/lib/content"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -10,6 +10,9 @@ export const metadata: Metadata = {
 }
 
 export default function ContactPage() {
+  const site = loadSiteContent()
+  const faqs = loadFaqs()
+
   return (
     <>
       <Nav />

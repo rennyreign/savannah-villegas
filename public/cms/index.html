@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Savannah Villegas Content Manager</title>
+  <script>
+    if (!["localhost", "127.0.0.1"].includes(window.location.hostname)) {
+      document.write('<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"><\/script>');
+    }
+  </script>
+</head>
+<body>
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <script src="/cms/preview-templates.js"></script>
+  <script>
+    // Force the Decap preview iframe to be scrollable by removing its fixed height
+    function fixPreviewScroll() {
+      var iframes = document.querySelectorAll('iframe');
+      iframes.forEach(function(iframe) {
+        iframe.style.height = '100%';
+        iframe.style.minHeight = '100%';
+        iframe.style.overflow = 'auto';
+        try {
+          var doc = iframe.contentDocument || iframe.contentWindow.document;
+          if (doc && doc.body) {
+            doc.documentElement.style.overflowY = 'auto';
+            doc.documentElement.style.height = 'auto';
+            doc.body.style.overflowY = 'auto';
+            doc.body.style.height = 'auto';
+          }
+        } catch(e) {}
+      });
+    }
+
+    // Watch for iframe being added/changed by Decap's React render
+    var observer = new MutationObserver(function() {
+      fixPreviewScroll();
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
+
+    // Also run on a short interval in case MutationObserver misses style updates
+    setInterval(fixPreviewScroll, 1500);
+  </script>
+</body>
+</html>
