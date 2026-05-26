@@ -204,23 +204,28 @@ collections:
   - name: "about"
     label: "👤 About"
     files:
-      - name: "content"
-        label: "About Content"
-        file: "content/about/content.json"
+      - name: "hero"
+        label: "Hero — Banner Section"
+        file: "content/about/hero.json"
         fields:
-          - { name: "heroImage", label: "Hero Background Photo", widget: "image", required: false, hint: "Landscape photo. Recommended: 1400×900px or wider, JPG under 1.5MB." }
-          - { name: "bottomImage", label: "Bottom Section Photo", widget: "image", required: false, hint: "Portrait or square photo. Recommended: 1000×1000px, JPG under 1MB." }
-          - { name: "heroHeading", label: "Hero Heading", widget: "text" }
-          - { name: "heroSubheading", label: "Hero Subheading", widget: "text" }
-          - { name: "philosophyTitle", label: "Philosophy Title", widget: "text" }
-          - { name: "philosophyText", label: "Philosophy Body", widget: "text" }
+          - { name: "heroImage", label: "Background Photo", widget: "image", required: false, hint: "Landscape photo. Recommended: 1400×900px or wider, JPG under 1.5MB." }
+          - { name: "heroHeading", label: "Heading", widget: "text" }
+          - { name: "heroSubheading", label: "Subheading", widget: "text" }
+
+      - name: "philosophy"
+        label: "Creative Philosophy — Body Section"
+        file: "content/about/philosophy.json"
+        fields:
+          - { name: "philosophyTitle", label: "Section Title", widget: "text" }
+          - { name: "philosophyText", label: "Section Body", widget: "text" }
           - { name: "pullQuote", label: "Pull Quote", widget: "text" }
           - { name: "col1Text", label: "Body Column 1", widget: "text" }
           - { name: "col2Text", label: "Body Column 2", widget: "text" }
-          - { name: "humanFirstEyebrow", label: "Human First Eyebrow", widget: "string" }
-          - { name: "humanFirstHeading", label: "Human First Heading", widget: "text" }
-          - { name: "humanFirstBody1", label: "Human First Body 1", widget: "text" }
-          - { name: "humanFirstBody2", label: "Human First Body 2", widget: "text" }
+
+      - name: "values"
+        label: "Values — Four Pillars"
+        file: "content/about/content.json"
+        fields:
           - { name: "value1Title", label: "Value 1 Title", widget: "string" }
           - { name: "value1Text", label: "Value 1 Text", widget: "text" }
           - { name: "value1Icon", label: "Value 1 Icon", widget: "string", hint: "check, users, leaf, sprout" }
@@ -233,6 +238,16 @@ collections:
           - { name: "value4Title", label: "Value 4 Title", widget: "string" }
           - { name: "value4Text", label: "Value 4 Text", widget: "text" }
           - { name: "value4Icon", label: "Value 4 Icon", widget: "string", hint: "check, users, leaf, sprout" }
+
+      - name: "human-first"
+        label: "Human First — Closing Section"
+        file: "content/about/human-first.json"
+        fields:
+          - { name: "bottomImage", label: "Photo", widget: "image", required: false, hint: "Portrait or square photo. Recommended: 1000×1000px, JPG under 1MB." }
+          - { name: "humanFirstEyebrow", label: "Eyebrow Label", widget: "string" }
+          - { name: "humanFirstHeading", label: "Heading", widget: "text" }
+          - { name: "humanFirstBody1", label: "Body Paragraph 1", widget: "text" }
+          - { name: "humanFirstBody2", label: "Body Paragraph 2", widget: "text" }
 
   - name: "contact"
     label: "📬 Contact / FAQ"
@@ -262,6 +277,17 @@ collections:
           - { name: "question", label: "Question", widget: "string" }
           - { name: "answer", label: "Answer", widget: "text" }
 
+  - name: "tutorial"
+    label: "🎓 Tutorial"
+    files:
+      - name: "walkthrough"
+        label: "Walkthrough Video"
+        file: "public/cms/tutorial.json"
+        fields:
+          - { name: "title", label: "Panel Title", widget: "string", hint: "Short title shown above the video in the CMS panel." }
+          - { name: "videoUrl", label: "Video URL", widget: "string", hint: "Paste a YouTube, Vimeo, or direct MP4 URL. Leave blank to hide the panel." }
+          - { name: "body", label: "Helper Text", widget: "text", hint: "Short message shown below the video." }
+
   - name: "site"
     label: "⚙️ Site Settings"
     files:
@@ -276,5 +302,7 @@ collections:
           - { name: "email", label: "Email", widget: "string" }
           - { name: "tagline", label: "Tagline", widget: "string" }
           - { name: "description", label: "Meta Description", widget: "text" }
+          - { name: "handoffSha", label: "Factory State (Git SHA)", widget: "string", hint: "Do not edit. Records the original build handoff commit. Used by Sorted for factory reset." }
+          - { name: "handoffDate", label: "Handoff Date", widget: "string", hint: "Do not edit. Date the site was handed off by Sorted." }
 
 custom_css: "/cms/cms.css"

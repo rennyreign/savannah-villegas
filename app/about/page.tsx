@@ -1,7 +1,7 @@
 import Footer from "@/components/Footer"
 import Nav from "@/components/Nav"
 import SectionIntro from "@/components/SectionIntro"
-import { loadAboutContent, loadSiteContent } from "@/lib/content"
+import { loadAboutContent, loadAboutHero, loadAboutHumanFirst, loadAboutPhilosophy, loadSiteContent } from "@/lib/content"
 import { imgSrc } from "@/lib/image"
 import {
   Check,
@@ -26,6 +26,9 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   const site = loadSiteContent()
+  const aboutHero = loadAboutHero()
+  const philosophy = loadAboutPhilosophy()
+  const humanFirst = loadAboutHumanFirst()
   const about = loadAboutContent()
 
   const values = [
@@ -43,32 +46,32 @@ export default function AboutPage() {
           <div className="flex items-end px-6 pb-16 pt-44 sm:px-10 lg:px-16">
             <div className="reveal">
               <p className="eyebrow text-[var(--sand)]">About Savannah</p>
-              <h1 className="display-lg mt-6 text-white">{about.heroHeading}</h1>
+              <h1 className="display-lg mt-6 text-white">{aboutHero.heroHeading}</h1>
               <p className="mt-8 max-w-xl text-lg leading-8 text-white/72">
-                {about.heroSubheading}
+                {aboutHero.heroSubheading}
               </p>
             </div>
           </div>
           <div
             className="min-h-[520px] bg-cover bg-center opacity-90"
-            style={{ backgroundImage: `url('${imgSrc(about.heroImage, { w: 1400, fit: "cover" })}')` }}
+            style={{ backgroundImage: `url('${imgSrc(aboutHero.heroImage, { w: 1400, fit: "cover" })}')` }}
           />
         </section>
 
         <section className="py-24">
           <SectionIntro
             eyebrow="Creative Philosophy"
-            title={about.philosophyTitle}
-            text={about.philosophyText}
+            title={philosophy.philosophyTitle}
+            text={philosophy.philosophyText}
             align="split"
           />
           <div className="mx-auto mt-16 grid max-w-[1400px] gap-10 px-6 sm:px-10 lg:grid-cols-[0.8fr_1.2fr] lg:px-16">
             <p className="font-serif text-4xl leading-tight text-[var(--charcoal)]">
-              {about.pullQuote}
+              {philosophy.pullQuote}
             </p>
             <div className="grid gap-6 text-base leading-8 text-[var(--muted)] md:grid-cols-2">
-              <p>{about.col1Text}</p>
-              <p>{about.col2Text}</p>
+              <p>{philosophy.col1Text}</p>
+              <p>{philosophy.col2Text}</p>
             </div>
           </div>
         </section>
@@ -91,15 +94,15 @@ export default function AboutPage() {
         <section className="grid lg:grid-cols-2">
           <div
             className="min-h-[520px] bg-cover bg-center"
-            style={{ backgroundImage: `url('${imgSrc(about.bottomImage, { w: 1000, fit: "cover" })}')` }}
+            style={{ backgroundImage: `url('${imgSrc(humanFirst.bottomImage, { w: 1000, fit: "cover" })}')` }}
           />
           <div className="flex items-center px-6 py-20 sm:px-10 lg:px-16">
             <div>
-              <p className="eyebrow">{about.humanFirstEyebrow}</p>
-              <h2 className="display-sm mt-5">{about.humanFirstHeading}</h2>
+              <p className="eyebrow">{humanFirst.humanFirstEyebrow}</p>
+              <h2 className="display-sm mt-5">{humanFirst.humanFirstHeading}</h2>
               <div className="mt-7 space-y-5 text-base leading-8 text-[var(--muted)]">
-                <p>{about.humanFirstBody1}</p>
-                <p>{about.humanFirstBody2}</p>
+                <p>{humanFirst.humanFirstBody1}</p>
+                <p>{humanFirst.humanFirstBody2}</p>
               </div>
               <p className="mt-8 font-mono text-[10px] uppercase tracking-[0.3em] text-[var(--olive)]">
                 Based in {site.location}

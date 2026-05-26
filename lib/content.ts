@@ -192,20 +192,57 @@ export function loadProcessSteps(): ProcessStep[] {
     .map((s, i) => ({ ...s, icon: PROCESS_ICONS[i] ?? "check" }))
 }
 
-export type AboutContent = {
+export type AboutHero = {
   heroImage: string
-  bottomImage: string
   heroHeading: string
   heroSubheading: string
+}
+
+export function loadAboutHero(): AboutHero {
+  return loadJSON<AboutHero>("about/hero.json", {
+    heroImage: "/savannah-about.jpg",
+    heroHeading: "A calm eye for stories that feel lived in.",
+    heroSubheading: "Savannah creates social-first video for brands that care about atmosphere, honesty, and the small moments people remember.",
+  })
+}
+
+export type AboutPhilosophy = {
   philosophyTitle: string
   philosophyText: string
   pullQuote: string
   col1Text: string
   col2Text: string
+}
+
+export function loadAboutPhilosophy(): AboutPhilosophy {
+  return loadJSON<AboutPhilosophy>("about/philosophy.json", {
+    philosophyTitle: "Content should feel considered, not manufactured.",
+    philosophyText: "The work sits somewhere between a quiet editorial feature and a practical piece of social content. It needs to look beautiful, but it also needs to help a real business communicate clearly.",
+    pullQuote: "I care about the in-between moments: the hand adjusting the product, the light across the table, the laugh before the line starts.",
+    col1Text: "My process is built for business owners who want content to feel easier. You bring the vision, the offer, and the heart of the brand. I help translate it into footage and edits that feel natural online.",
+    col2Text: "The goal is never to make your brand louder for the sake of it. The goal is to make it more recognizable, more trusted, and easier for the right people to connect with.",
+  })
+}
+
+export type AboutHumanFirst = {
+  bottomImage: string
   humanFirstEyebrow: string
   humanFirstHeading: string
   humanFirstBody1: string
   humanFirstBody2: string
+}
+
+export function loadAboutHumanFirst(): AboutHumanFirst {
+  return loadJSON<AboutHumanFirst>("about/human-first.json", {
+    bottomImage: "/savannah13.jpg",
+    humanFirstEyebrow: "Human First",
+    humanFirstHeading: "The camera is only part of the work.",
+    humanFirstBody1: "I bring a steady presence to each project because good content asks people to feel comfortable, clear, and seen.",
+    humanFirstBody2: "Whether I'm filming a launch, shaping a monthly content rhythm, or editing the footage you already have, I want the final piece to feel like your brand at its most honest.",
+  })
+}
+
+export type AboutContent = {
   value1Title: string
   value1Text: string
   value1Icon: string
@@ -232,19 +269,6 @@ export function loadProcessPage(): ProcessPage {
 
 export function loadAboutContent(): AboutContent {
   return loadJSON<AboutContent>("about/content.json", {
-    heroImage: "/savannah-about.jpg",
-    bottomImage: "/savannah13.jpg",
-    heroHeading: "A calm eye for stories that feel lived in.",
-    heroSubheading: "Savannah creates social-first video for brands that care about atmosphere, honesty, and the small moments people remember.",
-    philosophyTitle: "Content should feel considered, not manufactured.",
-    philosophyText: "The work sits somewhere between a quiet editorial feature and a practical piece of social content. It needs to look beautiful, but it also needs to help a real business communicate clearly.",
-    pullQuote: "I care about the in-between moments: the hand adjusting the product, the light across the table, the laugh before the line starts.",
-    col1Text: "My process is built for business owners who want content to feel easier. You bring the vision, the offer, and the heart of the brand. I help translate it into footage and edits that feel natural online.",
-    col2Text: "The goal is never to make your brand louder for the sake of it. The goal is to make it more recognizable, more trusted, and easier for the right people to connect with.",
-    humanFirstEyebrow: "Human First",
-    humanFirstHeading: "The camera is only part of the work.",
-    humanFirstBody1: "I bring a steady presence to each project because good content asks people to feel comfortable, clear, and seen.",
-    humanFirstBody2: "Whether I'm filming a launch, shaping a monthly content rhythm, or editing the footage you already have, I want the final piece to feel like your brand at its most honest.",
     value1Title: "Reliable",
     value1Text: "Deadlines matter. Your content gets done without you chasing for updates.",
     value1Icon: "check",
