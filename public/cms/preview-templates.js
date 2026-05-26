@@ -37,7 +37,31 @@ var styles = `
   .hero-preview .body { color: rgba(245,241,235,0.8); }
   .hero-preview .cta { display: inline-block; margin-top: 1.5rem; padding: 0.75rem 1.75rem; border: 1px solid var(--sand); font-family: ui-monospace, monospace; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--paper); }
   .image-preview { width: 100%; height: auto; object-fit: contain; display: block; margin-bottom: 1rem; background: var(--stone); }
+  .image-placeholder { width: 100%; height: 200px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem; margin-bottom: 1rem; background: var(--paper-soft); border: 1.5px dashed var(--stone); color: var(--muted); font-family: ui-sans-serif, system-ui, sans-serif; font-size: 0.78rem; }
+  .image-placeholder span { font-family: ui-monospace, monospace; font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--stone); }
 `;
+
+/* Render an image if the path is from /public (already deployed), or a
+   placeholder if it's a freshly uploaded /uploads/ file not yet on the CDN. */
+function imageOrPlaceholder(getAsset, rawPath, altText) {
+  if (!rawPath) return null;
+  var resolved = getAsset(rawPath);
+  var src = resolved ? resolved.toString() : rawPath;
+  /* blob: URLs are local uploads Decap holds in memory — show placeholder */
+  var isBlob = src && src.indexOf('blob:') === 0;
+  if (isBlob) {
+    return h('div', { className: 'image-placeholder' },
+      h('svg', { width: 32, height: 32, viewBox: '0 0 24 24', fill: 'none', stroke: 'currentColor', strokeWidth: 1.5, strokeLinecap: 'round', strokeLinejoin: 'round' },
+        h('rect', { x: 3, y: 3, width: 18, height: 18, rx: 2 }),
+        h('circle', { cx: 8.5, cy: 8.5, r: 1.5 }),
+        h('path', { d: 'M21 15l-5-5L5 21' })
+      ),
+      h('p', {}, 'Image uploading…'),
+      h('span', {}, 'Will appear on site after publish')
+    );
+  }
+  return h('img', { src: src, className: 'image-preview', alt: altText || '' });
+}
 
 function styleTag() {
   var el = document.createElement('style');
@@ -59,7 +83,12 @@ var HeroPreview = createClass({
     return h('div', {},
       h('style', { dangerouslySetInnerHTML: { __html: styles } }),
       h('div', { className: 'hero-preview' },
-        heroImage && h('img', { src: this.props.getAsset(heroImage).toString(), style: { position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: 0.35 } }),
+        heroImage && (function() {
+          var resolved = this.props.getAsset(heroImage);
+          var src = resolved ? resolved.toString() : heroImage;
+          var isBlob = src && src.indexOf('blob:') === 0;
+          return isBlob ? null : h('img', { src: src, style: { position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: 0.35 } });
+        }.call(this)),
         h('div', { style: { position: 'relative' } },
           h('p', { className: 'eyebrow' }, tagline),
           h('h1', { className: 'display' }, heading.split('\n').map(function(line, i) {
@@ -129,7 +158,7 @@ var WorkPreview = createClass({
         category && h('span', { className: 'tag', style: { marginTop: '0.5rem' } }, category),
         h('div', { className: 'divider' }),
         thumbnail
-          ? h('img', { src: this.props.getAsset(thumbnail).toString(), className: 'image-preview', alt: title })
+          ? imageOrPlaceholder(this.props.getAsset, thumbnail, title)
           : video
             ? h('video', { src: video, style: { width: '100%', maxHeight: '240px', display: 'block', background: '#111', marginBottom: '1rem' }, controls: true })
             : h('div', { className: 'image-preview', style: { display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--muted)', fontFamily: 'ui-sans-serif', fontSize: '0.8rem' } }, 'No video or thumbnail set'),
@@ -174,7 +203,7 @@ var AboutPreview = createClass({
 
     return h('div', {},
       h('style', { dangerouslySetInnerHTML: { __html: styles } }),
-      heroImage && h('img', { src: this.props.getAsset(heroImage).toString(), className: 'image-preview', alt: 'Hero' }),
+      imageOrPlaceholder(this.props.getAsset, heroImage, 'Hero'),
       h('div', { className: 'preview' },
         h('p', { className: 'eyebrow' }, 'About Savannah'),
         h('h1', { className: 'display' }, heroHeading),
@@ -264,7 +293,7 @@ var IntroPreview = createClass({
 
     return h('div', {},
       h('style', { dangerouslySetInnerHTML: { __html: styles } }),
-      introImage && h('img', { src: this.props.getAsset(introImage).toString(), className: 'image-preview', alt: 'Intro' }),
+      imageOrPlaceholder(this.props.getAsset, introImage, 'Intro'),
       h('div', { className: 'preview' },
         h('p', { className: 'eyebrow' }, eyebrow),
         h('h2', { className: 'heading' }, heading),
@@ -313,9 +342,17 @@ var ContactSectionPreview = createClass({
     return h('div', {},
       h('style', { dangerouslySetInnerHTML: { __html: styles } }),
       h('div', { style: { background: 'var(--espresso)', display: 'grid', gridTemplateColumns: '1fr 1fr', minHeight: '320px' } },
-        contactImage
-          ? h('div', { style: { backgroundImage: 'url(' + this.props.getAsset(contactImage).toString() + ')', backgroundSize: 'cover', backgroundPosition: 'center' } })
-          : h('div', { style: { background: 'var(--charcoal)' } }),
+        (function() {
+          if (!contactImage) return h('div', { style: { background: 'var(--charcoal)' } });
+          var resolved = this.props.getAsset(contactImage);
+          var src = resolved ? resolved.toString() : contactImage;
+          var isBlob = src && src.indexOf('blob:') === 0;
+          if (isBlob) return h('div', { className: 'image-placeholder', style: { background: 'rgba(255,255,255,0.05)', border: '1.5px dashed rgba(255,255,255,0.2)', color: 'rgba(255,255,255,0.4)' } },
+            h('p', {}, 'Image uploading\u2026'),
+            h('span', { style: { color: 'rgba(255,255,255,0.25)' } }, 'Will appear after publish')
+          );
+          return h('div', { style: { backgroundImage: 'url(' + src + ')', backgroundSize: 'cover', backgroundPosition: 'center' } });
+        }.call(this)),
         h('div', { style: { padding: '2.5rem 2rem', color: 'var(--paper)' } },
           h('p', { className: 'eyebrow', style: { color: 'var(--sand)' } }, eyebrow),
           h('h2', { style: { fontFamily: 'Georgia, serif', fontSize: 'clamp(1.5rem, 3vw, 2.8rem)', fontWeight: 500, lineHeight: 1, color: 'white', marginTop: '1rem' } }, heading),
