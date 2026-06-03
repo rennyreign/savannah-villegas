@@ -273,6 +273,26 @@ var SitePreview = createClass({
   }
 });
 
+/* ── Tutorial Preview ── */
+var TutorialPreview = createClass({
+  render: function() {
+    var entry = this.props.entry;
+    var title = entry.getIn(['data', 'title']) || 'How to update your site';
+    var videoUrl = entry.getIn(['data', 'videoUrl']) || '';
+    var body = entry.getIn(['data', 'body']) || '';
+    return h('div', {},
+      h('style', { dangerouslySetInnerHTML: { __html: styles } }),
+      h('div', { className: 'preview' },
+        h('p', { className: 'eyebrow' }, 'Tutorial Panel'),
+        h('h2', { className: 'heading' }, title),
+        h('div', { className: 'divider' }),
+        videoUrl && videoUrl.includes('supercut.ai') && h('div', { style: { marginBottom: '1rem' }, dangerouslySetInnerHTML: { __html: '<div style="position:relative;padding-bottom:64.9%;"><iframe allow="clipboard-write; encrypted-media; picture-in-picture" allowfullscreen mozallowfullscreen webkitallowfullscreen frameborder="0" src="https://supercut.ai/embed/adx-engine/TKZahKJ3JpKy7ezAHcOVqb?embed=full" style="position:absolute;width:100%;height:100%;top:0;left:0;border-radius:16px;" title="CMS Overview & Editing Guide"></iframe></div>' } }),
+        h('p', { className: 'body' }, body)
+      )
+    );
+  }
+});
+
 /* ── Global preview iframe styles (enables scroll, sets background) ── */
 CMS.registerPreviewStyle('/cms/preview-frame.css');
 CMS.registerPreviewStyle(
@@ -395,3 +415,5 @@ CMS.registerPreviewTemplate('faq3', FaqPreview);
 CMS.registerPreviewTemplate('faq4', FaqPreview);
 
 CMS.registerPreviewTemplate('general', SitePreview);
+
+CMS.registerPreviewTemplate('walkthrough', TutorialPreview);
