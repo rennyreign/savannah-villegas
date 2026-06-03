@@ -56,9 +56,6 @@
     function injectWelcomePanel(videoUrl, title, body) {
       if (document.getElementById(PANEL_ID)) return;
 
-      var target = document.querySelector('[class*="AppHeaderContent"], [class*="AppHeader"], header, nav');
-      if (!target) return;
-
       var panel = document.createElement('div');
       panel.id = PANEL_ID;
       panel.style.cssText = [
@@ -68,30 +65,21 @@
         'font-family:ui-sans-serif,system-ui,sans-serif', 'overflow:hidden'
       ].join(';');
 
+      var isSupercut = videoUrl && videoUrl.includes('supercut.ai');
       var isYoutube = videoUrl && (videoUrl.includes('youtube.com') || videoUrl.includes('youtu.be'));
-      var embedUrl = '';
-      if (isYoutube) {
-        var videoId = videoUrl.match(/(?:v=|youtu\.be\/)([^&\s]+)/);
-        embedUrl = videoId ? 'https://www.youtube.com/embed/' + videoId[1] : '';
-      }
       var isVimeo = videoUrl && videoUrl.includes('vimeo.com');
-      if (isVimeo) {
-        var vimeoId = videoUrl.match(/vimeo\.com\/(\d+)/);
-        embedUrl = vimeoId ? 'https://player.vimeo.com/video/' + vimeoId[1] : '';
-      }
-      var isSupercut = videoUrl && videoUrl.includes('supercut.ai/share/');
-      if (isSupercut) {
-        embedUrl = videoUrl.replace('supercut.ai/share/', 'supercut.ai/embed/') + '?embed=full';
-      }
 
       var videoHTML = '';
-      if (embedUrl) {
-        var isSupercut2 = embedUrl.includes('supercut.ai');
-        var paddingBottom = isSupercut2 ? '64.9%' : '56.25%';
-        var extraAttrs = isSupercut2 ? ' allow="clipboard-write; encrypted-media; picture-in-picture" mozallowfullscreen webkitallowfullscreen' : '';
-        videoHTML = '<div style="position:relative;padding-bottom:' + paddingBottom + ';height:0;overflow:hidden;">'
-          + '<iframe src="' + embedUrl + '" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;border-radius:8px;" allowfullscreen' + extraAttrs + '></iframe>'
-          + '</div>';
+      if (isSupercut) {
+        videoHTML = '<div style="position:relative;padding-bottom:64.9%;"><iframe allow="clipboard-write; encrypted-media; picture-in-picture" allowfullscreen mozallowfullscreen webkitallowfullscreen frameborder="0" src="https://supercut.ai/embed/adx-engine/TKZahKJ3JpKy7ezAHcOVqb?embed=full" style="position:absolute;width:100%;height:100%;top:0;left:0;border-radius:16px;" title="CMS Overview & Editing Guide"></iframe></div>';
+      } else if (isYoutube) {
+        var videoId = videoUrl.match(/(?:v=|youtu\.be\/)([^&\s]+)/);
+        var embedUrl = videoId ? 'https://www.youtube.com/embed/' + videoId[1] : '';
+        videoHTML = '<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;"><iframe src="' + embedUrl + '" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" allowfullscreen></iframe></div>';
+      } else if (isVimeo) {
+        var vimeoId = videoUrl.match(/vimeo\.com\/(\d+)/);
+        var embedUrl = vimeoId ? 'https://player.vimeo.com/video/' + vimeoId[1] : '';
+        videoHTML = '<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;"><iframe src="' + embedUrl + '" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" allowfullscreen></iframe></div>';
       } else if (videoUrl) {
         videoHTML = '<video src="' + videoUrl + '" controls style="width:100%;display:block;background:#111;"></video>';
       }
